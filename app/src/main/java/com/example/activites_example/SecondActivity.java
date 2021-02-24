@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -11,6 +12,13 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        TextView txtVw = findViewById(R.id.txtVw_showtext);
+
+        String text = getIntent().getExtras().getString("myText");
+        String other = getIntent().getExtras().getString("other");
+
+        txtVw.setText(text);
 
         Log.d("LIFE_CYCLE", "SecondActivity - onCreate");
     }

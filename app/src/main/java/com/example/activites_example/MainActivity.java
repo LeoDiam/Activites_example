@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,12 +18,18 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d("LIFE_CYCLE", "MainActivity - onCreate");
 
+        EditText editText = findViewById(R.id.edTxt);
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d("BUTTON", "You click a button");
+                String text = editText.getText().toString();
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+
+                intent.putExtra("myText", text);
+                intent.putExtra("other", "this is some text");
+
                 startActivity(intent);
             }
         });
